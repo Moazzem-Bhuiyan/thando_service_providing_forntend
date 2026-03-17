@@ -134,52 +134,7 @@ export default function ProfilePage() {
           <Field label="Email" value={form.email} onChange={set("email")} type="email" disabled={!editMode} />
         </div>
 
-        {role === "service_provider" && (
-          <>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Field label="Company Name" value={form.companyName} onChange={set("companyName")} disabled={!editMode} />
-              <Field label="Phone Number" value={form.phone}       onChange={set("phone")}       disabled={!editMode} />
-            </div>
-
-            <Field label="Address" value={form.address} onChange={set("address")} disabled={!editMode} />
-
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Field label="Bank Account Number" value={form.bankAccount} onChange={set("bankAccount")} disabled={!editMode} />
-              <Field label="Experience"          value={form.experience}  onChange={set("experience")}  disabled={!editMode} />
-            </div>
-
-            {/* NID */}
-            <div className="space-y-1.5">
-              <label className="block text-sm font-semibold text-gray-700">
-                NID or Driving License
-              </label>
-              <div className="flex overflow-hidden rounded-lg border border-gray-200">
-                <button
-                  disabled={!editMode}
-                  onClick={() => nidRef.current?.click()}
-                  className={cn(
-                    "shrink-0 bg-gray-200 px-3 py-2.5 text-sm font-medium text-gray-700 transition sm:px-4",
-                    editMode ? "hover:bg-gray-300" : "cursor-not-allowed opacity-60"
-                  )}
-                >
-                  Choose File
-                </button>
-                <span className="flex-1 truncate px-3 py-2.5 text-sm text-gray-500 sm:px-4">
-                  {nidFileName}
-                </span>
-              </div>
-              <input
-                ref={nidRef}
-                type="file"
-                className="hidden"
-                onChange={(e) => {
-                  const f = e.target.files?.[0];
-                  if (f) setNidFileName(f.name);
-                }}
-              />
-            </div>
-          </>
-        )}
+     
 
         {role === "user" && (
           <Field label="Address" value={form.address} onChange={set("address")} disabled={!editMode} />
@@ -203,3 +158,52 @@ export default function ProfilePage() {
     </div>
   );
 }
+
+
+
+  //  {role === "service_provider" && (
+  //         <>
+  //           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+  //             <Field label="Company Name" value={form.companyName} onChange={set("companyName")} disabled={!editMode} />
+  //             <Field label="Phone Number" value={form.phone}       onChange={set("phone")}       disabled={!editMode} />
+  //           </div>
+
+  //           <Field label="Address" value={form.address} onChange={set("address")} disabled={!editMode} />
+
+  //           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+  //             <Field label="Bank Account Number" value={form.bankAccount} onChange={set("bankAccount")} disabled={!editMode} />
+  //             <Field label="Experience"          value={form.experience}  onChange={set("experience")}  disabled={!editMode} />
+  //           </div>
+
+  //           {/* NID */}
+  //           <div className="space-y-1.5">
+  //             <label className="block text-sm font-semibold text-gray-700">
+  //               NID or Driving License
+  //             </label>
+  //             <div className="flex overflow-hidden rounded-lg border border-gray-200">
+  //               <button
+  //                 disabled={!editMode}
+  //                 onClick={() => nidRef.current?.click()}
+  //                 className={cn(
+  //                   "shrink-0 bg-gray-200 px-3 py-2.5 text-sm font-medium text-gray-700 transition sm:px-4",
+  //                   editMode ? "hover:bg-gray-300" : "cursor-not-allowed opacity-60"
+  //                 )}
+  //               >
+  //                 Choose File
+  //               </button>
+  //               <span className="flex-1 truncate px-3 py-2.5 text-sm text-gray-500 sm:px-4">
+  //                 {nidFileName}
+  //               </span>
+  //             </div>
+  //             <input
+  //               ref={nidRef}
+  //               type="file"
+  //               className="hidden"
+  //               onChange={(e) => {
+  //                 const f = e.target.files?.[0];
+  //                 if (f) setNidFileName(f.name);
+  //               }}
+  //             />
+  //           </div>
+  //         </>
+  //       )}

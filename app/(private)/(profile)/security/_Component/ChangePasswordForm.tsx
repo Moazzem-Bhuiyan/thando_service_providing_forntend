@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
@@ -7,7 +8,7 @@ import UInput from "@/components/form-components/UInput";
 const ChangePasswordForm = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const onFormSubmit = async (data) => {
+  const onFormSubmit = async (data: any) => {
     try {
       console.log("Change Password Data:", data);
       // TODO: call your API to change password

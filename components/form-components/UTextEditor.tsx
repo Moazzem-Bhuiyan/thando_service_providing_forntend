@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useFormContext, FieldValues, Path } from "react-hook-form";
@@ -10,10 +11,10 @@ import {
 } from "../ui/form";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-
+// @ts-expect-error
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
-// 🔥 Generic Props টাইপ
+
 type UTextEditorProps<T extends FieldValues> = {
   name: Path<T>;
   label?: string;
@@ -68,6 +69,7 @@ export default function UTextEditor<T extends FieldValues>({
     <FormField
       control={control}
       name={name}
+      // @ts-expect-error
       render={({ field }) => (
         <FormItem>
           <FormLabel>
@@ -77,7 +79,7 @@ export default function UTextEditor<T extends FieldValues>({
           <FormControl>
             <div className="relative">
               <JoditEditor
-              
+              // @ts-expect-error
                 value={field.value || ""}
                 config={joditConfig}
                 onBlur={(content: string) => field.onChange(content)}

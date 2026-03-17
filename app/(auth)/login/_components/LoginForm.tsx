@@ -4,8 +4,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import FormWrapper from "@/components/form-components/FormWrapper";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { authValidationSchema } from "@/schema/authSchema";
 import UInput from "@/components/form-components/UInput";
 import { Button } from "@/components/ui/button";
 

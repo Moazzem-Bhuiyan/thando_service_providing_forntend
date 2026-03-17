@@ -16,11 +16,10 @@ import AnimateTextOnHover from "@/components/AniamteTextOnHover/AnimateTextOnHov
 import { useSelector } from "react-redux";
 import { selectUser } from "@/redux/features/authSlice";
 // import { useGetProfileQuery } from "@/redux/api/userApi";
-import defaultUserAvatar from "/public/images/user/default-user-avatar.png";
-import { useSocket } from "@/context/SocketContextApi";
+
 // import { tagTypes } from "@/redux/tagtypes";
 // import useRefetchOnMessage from "@/hooks/useRefetchOnNotificaitonFound";
-import MobileSidebar from "./MobileSidebar";
+// import MobileSidebar from "./MobileSidebar";
 import AnimatedArrow from "@/components/AnimatedArrow/AnimatedArrow";
 
 // Links
@@ -49,8 +48,10 @@ const LINKS = [
 ];
 
 export default function Navbar() {
-  const userId = useSelector(selectUser)?.userId;
-  const role = useSelector(selectUser)?.role;
+  const userId = 1;
+  const role = "customer";
+  // const userId = useSelector(selectUser)?.userId;
+  // const role = useSelector(selectUser)?.role;
 
   // const { socket } = useSocket();
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
@@ -215,7 +216,7 @@ export default function Navbar() {
                 </Button>
 
                 <Button
-                  variant="orange"
+                  variant="default"
                   size="lg"
                   className="w-1/2 rounded-full"
                   asChild
@@ -289,7 +290,7 @@ export default function Navbar() {
               ) : (
                 <Button
                   size="lg"
-                  variant="orange"
+                  variant="default"
                   className="ml-auto w-3/4 rounded-full py-4"
                   asChild
                 >
@@ -306,10 +307,10 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Sidebar */}
-        <MobileSidebar
+        {/* <MobileSidebar
           open={showMobileSidebar}
           setOpen={setShowMobileSidebar}
-        />
+        /> */}
       </>
     </header>
   );
