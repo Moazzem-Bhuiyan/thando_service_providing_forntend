@@ -9,7 +9,7 @@ import TrustSection from "./_components/TrustSection";
 export default function Home() {
   return (
     <div className="space-y-20 md:space-y-24 lg:space-y-28 xl:space-y-32">
-      <Hero />
+    <Hero />
     <ServicesSection />
     <HowItWorks />
     <TrustSection />

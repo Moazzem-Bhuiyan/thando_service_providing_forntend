@@ -3,8 +3,7 @@
 import Link from 'next/link';
 import { ChevronDown, User, Menu, X } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
-import Image from 'next/image';
-import logo from '@/assets/logos/logo-svg.svg';
+
 
 export default function Navbar() {
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
@@ -36,12 +35,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-           
-            <Image 
-            src={logo}
-              alt="Logo of QuickFix"
-              className="h-12 w-full 3xl:-translate-x-16"
-            />
+         <h1 className="text-2xl font-bold text-white tracking-tight uppercase animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          QuickFix
+         </h1>
           
         </Link>
 
@@ -110,7 +106,7 @@ export default function Navbar() {
         {/* Right Side: User + Mobile Button */}
         <div className="flex items-center gap-3 md:gap-4">
           <Link
-            href="/account"
+            href="/profile"
             className="flex-shrink-0 w-9 h-9 md:w-10 md:h-10 border-2 border-white rounded-full flex items-center justify-center hover:bg-white hover:bg-opacity-10 transition-all"
           >
             <User size={18} className="md:w-5 md:h-5" />

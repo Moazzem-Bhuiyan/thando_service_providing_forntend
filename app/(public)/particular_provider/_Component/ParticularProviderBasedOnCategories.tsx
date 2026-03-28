@@ -4,10 +4,11 @@
 import { useState } from "react";
 import {
   MapPin, Star, Clock, Users, ChevronRight,
-  Zap, ShieldCheck, DollarSign, HeadphonesIcon, Search,
+  Zap, ShieldCheck, DollarSign, Search,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Provider {
@@ -166,12 +167,13 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <span className="flex items-center gap-1">
       <Star size={12} className="fill-amber-400 text-amber-400" />
-      <span className="text-xs font-semibold text-amber-600">{rating.toFixed(1)}</span>
+      <span className="text-sm font-semibold text-amber-600">{rating.toFixed(1)}</span>
     </span>
   );
 }
 
 function FeaturedCard({ p }: { p: Provider }) {
+  const router = useRouter();
   return (
     <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 transition hover:-translate-y-1 hover:shadow-lg">
       {p.badge && (
@@ -191,16 +193,16 @@ function FeaturedCard({ p }: { p: Provider }) {
       <div className="p-4">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <p className="text-sm font-bold text-gray-900">{p.name}</p>
-            <p className="mt-0.5 text-[11px] text-gray-400">{p.category}</p>
+            <p className="text-lg font-bold text-gray-900">{p.name}</p>
+            <p className="mt-0.5 text-[15px] text-gray-400">{p.category}</p>
           </div>
-          <span className="shrink-0 rounded-xl bg-blue-600 px-2.5 py-1 text-sm font-extrabold text-white">
+          {/* <span className="shrink-0 rounded-xl bg-blue-600 px-2.5 py-1 text-lg font-extrabold text-white">
             ${p.price}
             <span className="text-[10px] font-normal opacity-80">{p.unit}</span>
-          </span>
+          </span> */}
         </div>
 
-        <div className="mt-2.5 flex flex-wrap items-center gap-3 text-xs text-gray-500">
+        <div className="mt-2.5 flex flex-wrap items-center gap-3 text-sm text-gray-500">
           <StarRating rating={p.rating} />
           <span className="flex items-center gap-1">
             <Users size={11} />
@@ -212,7 +214,7 @@ function FeaturedCard({ p }: { p: Provider }) {
           </span>
         </div>
 
-        <button className="mt-3 w-full rounded-xl border-2 border-blue-600 py-2 text-xs font-bold text-blue-600 transition hover:bg-blue-600 hover:text-white">
+        <button onClick={() => router.push(`/providerDetails`)} className="mt-3 w-full  border-2  bg-[#001a4d] text-white py-2 text-xs font-bold  transition hover:bg-[#002368] hover:text-white">
           View Profile
         </button>
       </div>
@@ -221,6 +223,7 @@ function FeaturedCard({ p }: { p: Provider }) {
 }
 
 function ProviderRow({ p }: { p: Provider }) {
+  const router = useRouter();
   return (
     <div className="group flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-md sm:flex-row sm:items-start sm:p-5">
       {/* Image */}
@@ -266,7 +269,7 @@ function ProviderRow({ p }: { p: Provider }) {
           <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2.5 py-1 text-[11px] font-semibold text-red-500 ring-1 ring-red-100">
             Register
           </span>
-          <button className="flex items-center gap-1.5 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-blue-700">
+          <button onClick={() => router.push(`/providerDetails`)} className="flex items-center gap-1.5 rounded-xl bg-[#001a4d] px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-blue-700">
             View Profile <ChevronRight size={13} />
           </button>
         </div>

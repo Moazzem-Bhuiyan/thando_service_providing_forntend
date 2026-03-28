@@ -113,7 +113,7 @@ export default function ServicesSection() {
 function ServiceCard({ service }: { service: ServiceCard }) {
   return (
      <Link
-      href={`services/${service.id}`}
+      href={`/particular_provider`}
       className="group block w-full max-w-[320px] mx-auto"
     >
       <div className="relative overflow-hidden rounded-3xl bg-[#F3F8FF] shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2">
